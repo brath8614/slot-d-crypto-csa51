@@ -1,0 +1,14 @@
+plaintext = input("Enter the plaintext: ").upper()
+key = input("Enter the key (26 letters): ").upper()
+
+
+if len(key) != 26 or len(set(key)) != 26:
+    print("Error: Key must be a permutation of all 26 letters.")
+else:
+   
+    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    translation_table = str.maketrans(alphabet, key)
+    
+    ciphertext = plaintext.translate(translation_table)
+    
+    print(f"Encrypted text: {ciphertext}")
