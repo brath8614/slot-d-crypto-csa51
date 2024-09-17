@@ -1,0 +1,14 @@
+plain = input("Enter the plain text: ")
+key = int(input("Enter the key value: "))
+
+shift = lambda k: str.maketrans(
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz', 
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'[k%26:] + 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'[:k%26]
+)
+
+cipher = plain.translate(shift(key))
+print("\nPLAIN TEXT:", plain)
+print("\nENCRYPTED TEXT:", cipher)
+
+decrypted = cipher.translate(shift(-key))
+print("\n\nAFTER DECRYPTION:", decrypted)
